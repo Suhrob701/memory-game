@@ -1,0 +1,77 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #2c3e50, #3498db);
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+#timer, #shochikDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px;
+  display: inline-block;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px;
+  max-width: 360px; 
+  margin: 30px auto;
+}
+
+.card {
+  background-color: white;
+  color: transparent;
+  border-radius: 12px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.card.flipped,
+.card.matched {
+  color: black;
+  background-color: #f1c40f;
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  background-color: #2ecc71;
+  color: white;
+}
+
+#winMessage {
+  font-size: 28px;
+  background-color: #27ae60;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: inline-block;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.shock {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+} 
